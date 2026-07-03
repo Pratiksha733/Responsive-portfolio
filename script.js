@@ -1,80 +1,131 @@
-let expression = "";
+// ================= MOBILE MENU =================
 
-const history = document.getElementById("history");
-const result = document.getElementById("result");
+let menu = document.querySelector("#menu");
+let navbar = document.querySelector(".navbar");
 
-function append(value) {
+menu.onclick = () => {
+    menu.classList.toggle("fa-xmark");
+    navbar.classList.toggle("active");
+};
 
-    expression += value;
+// ================= CLOSE MENU WHEN LINK IS CLICKED =================
 
-    history.textContent = expression
-        .replace(/\*/g, "×")
-        .replace(/\//g, "÷");
+document.querySelectorAll(".navbar a").forEach(link => {
+    link.addEventListener("click", () => {
+        menu.classList.remove("fa-xmark");
+        navbar.classList.remove("active");
+    });
+});
 
-    result.textContent = expression || "0";
+// ================= ACTIVE NAVIGATION =================
 
-}
+let sections = document.querySelectorAll("section");
+let navLinks = document.querySelectorAll("header nav a");
 
-function clearDisplay() {
+window.onscroll = () => {
 
-    expression = "";
-    history.textContent = "";
-    result.textContent = "0";
+    sections.forEach(sec => {
 
-}
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute("id");
 
-function deleteLast() {
+        if (top >= offset && top < offset + height) {
 
-    expression = expression.slice(0, -1);
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+            });
 
-    history.textContent = expression
-        .replace(/\*/g, "×")
-        .replace(/\//g, "÷");
+            let activeLink = document.querySelector(
+                'header nav a[href="#' + id + '"]'
+            );
 
-    result.textContent = expression || "0";
+            if (activeLink) {
+                activeLink.classList.add("active");
+            }
 
-}
+        }
 
-function calculate() {
+    });
 
-    try {
+    // Close menu while scrolling
+    menu.classList.remove("fa-xmark");
+    navbar.classList.remove("active");
+};
 
-        let answer = eval(expression);
+// ================= SMOOTH BUTTON EFFECT =================
 
-        history.textContent = expression
-            .replace(/\*/g, "×")
-            .replace(/\//g, "÷") + " =";
+document.querySelectorAll(".btn").forEach(btn => {
 
-        result.textContent = answer;
+    btn.addEventListener("mouseenter", () => {
 
-        expression = answer.toString();
+        btn.style.transform = "translateY(-5px)";
 
-    } catch {
+    });
 
-        result.textContent = "Error";
+    btn.addEventListener("mouseleave", () => {
 
-        expression = "";
+        btn.style.transform = "translateY(0px)";
 
-    }
+    });
 
-}
+});
 
-document.addEventListener("keydown", (e) => {
+// ================= SCROLL TO TOP BUTTON =================
 
-    if ("0123456789+-*/().%".includes(e.key)) {
-        append(e.key);
-    }
+// Create Button
 
-    if (e.key === "Enter") {
-        calculate();
-    }
+const topBtn = document.createElement("button");
 
-    if (e.key === "Backspace") {
-        deleteLast();
-    }
+topBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
 
-    if (e.key === "Escape") {
-        clearDisplay();
+topBtn.id = "topBtn";
+
+document.body.appendChild(topBtn);
+
+// Style Button
+
+topBtn.style.position = "fixed";
+topBtn.style.bottom = "25px";
+topBtn.style.right = "25px";
+topBtn.style.width = "50px";
+topBtn.style.height = "50px";
+topBtn.style.border = "none";
+topBtn.style.borderRadius = "50%";
+topBtn.style.background = "#38bdf8";
+topBtn.style.color = "#fff";
+topBtn.style.fontSize = "20px";
+topBtn.style.cursor = "pointer";
+topBtn.style.display = "none";
+topBtn.style.boxShadow = "0 0 15px #38bdf8";
+topBtn.style.zIndex = "999";
+
+// Show Button
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 300) {
+
+        topBtn.style.display = "block";
+
+    } else {
+
+        topBtn.style.display = "none";
+
     }
 
 });
+
+// Scroll Top
+
+topBtn.onclick = () => {
+
+    window.scrollTo({
+
+        top: 0,
+        behavior: "smooth"
+
+    });
+
+};

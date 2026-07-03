@@ -4,54 +4,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Calculator</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <title>Pratiksha Agnihotri | Portfolio</title>
 </head>
 
 <body>
 
-    <div class="calculator">
+    <!-- ================= HEADER ================= -->
 
-        <div class="display">
-            <div id="history"></div>
-            <div id="result"></div>
+    <header>
+
+        <a href="#" class="logo">Portfolio</a>
+
+        <i class="fa-solid fa-bars" id="menu"></i>
+
+        <nav class="navbar">
+
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+    </header>
+
+    <!-- ================= HOME ================= -->
+
+    <section class="home" id="home">
+
+        <div class="home-content">
+
+            <h3>Hello, I'm</h3>
+
+            <h1>Pratiksha Agnihotri</h1>
+
+            <h3>Frontend <span>Web Developer</span></h3>
+
+            <p>
+                I build responsive and modern websites using HTML, CSS and JavaScript. I enjoy creating clean, interactive and user-friendly web applications.
+            </p>
+
+            <div class="social-media">
+
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+
+                <a href="#"><i class="fab fa-github"></i></a>
+
+                <a href="#"><i class="fab fa-instagram"></i></a>
+
+                <a href="#"><i class="fab fa-twitter"></i></a>
+
+            </div>
+
+            <a href="#" class="btn">Download Resume</a>
+
         </div>
 
-        <div class="buttons">
+        <div class="home-img">
 
-            <button class="gray" onclick="clearDisplay()">AC</button>
-            <button class="gray" onclick="deleteLast()">DEL</button>
-            <button class="gray" onclick="append('%')">%</button>
-            <button class="orange" onclick="append('/')">÷</button>
-
-            <button onclick="append('7')">7</button>
-            <button onclick="append('8')">8</button>
-            <button onclick="append('9')">9</button>
-            <button class="orange" onclick="append('*')">×</button>
-
-            <button onclick="append('4')">4</button>
-            <button onclick="append('5')">5</button>
-            <button onclick="append('6')">6</button>
-            <button class="orange" onclick="append('-')">−</button>
-
-            <button onclick="append('1')">1</button>
-            <button onclick="append('2')">2</button>
-            <button onclick="append('3')">3</button>
-            <button class="orange" onclick="append('+')">+</button>
-
-            <button onclick="append('(')">(</button>
-            <button onclick="append('0')">0</button>
-            <button onclick="append(')')">)</button>
-            <button class="orange" onclick="calculate()">=</button>
-
-            <button class="wide" onclick="append('.')">.</button>
+            <img src="profile.jpeg" alt="Profile">
 
         </div>
 
-    </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <div class="about-img">
+
+            <img src="images/profile.jpeg" alt="About Image">
+
+        </div>
+
+        <div class="about-content">
+
+            <h2 class="heading">About <span>Me</span></h2>
+
+            <h3>Frontend Developer</h3>
+
+            <p>
+
+                I'm a passionate Frontend Developer currently learning Web Development and React. I enjoy building responsive websites and working on real-world projects that improve my skills. My goal is to become a Full Stack Developer and contribute to innovative
+                software products.
+
+            </p>
+
+            <a href="#" class="btn">Read More</a>
+
+        </div>
+
+    </section>
+
+    <!-- Future Sections -->
+
+    <section id="skills">
+        <h1>skills</h1>
+        <h2>
+            <ul>
+                <li>HTML</li>
+
+
+                <li>CSS</li>
+
+                <li>JavaScript</li>
+                <li>React</li>
+            </ul>
+        </h2>
+    </section>
+
+    <section id="projects">
+        <h1>Projects</h1> <br>
+        <p>Here are some of the projects I've worked on:</p>
+        <ul>
+            <li> Project 1: Portfolio </li>
+            <li> Project 2: Calculator</li>
+            <li> Project 3:Song Album </li>
+        </ul>
+    </section>
+
+    <section id="contact"></section>
 
     <script src="script.js"></script>
 
+    </div>
 </body>
 
 </html>
